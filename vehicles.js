@@ -27,18 +27,15 @@ class Vehicle {
         this.assignedCrew = [];
     }
 
+    // i should have named this assignedTo(Vehicle)
+
+        // method - assignedTo(Vehicle) - assign this crewmember to the vehicle passed in, and update the vechile
+                    // passed in, and update the vehicle's list of assigned crew
+
     addCrew(name){
-        //let addedCrew = new CrewMembers(name)
-        //let nowCrew = this.currentCrew
         this.assignedCrew.push(name);
     
     }
-    // Properties:
-    // name/identifier unique identifier for the vehicle
-    // type of vehicle
-    // assignedCrew - an array of crew members assigned to the vehicle
-                // array of crew members
-
 
   // methods needed - canGo() - return true, if the vehicle is allowed to be operated, based on the type
                         // of vehicle and the current assigned grew                
@@ -58,7 +55,6 @@ class Vehicle {
         }
     };
 
-        // check to make sure that the vehicle matches the driver needed
      
         
 
@@ -116,20 +112,12 @@ let v8 = new Vehicle('AUS999', 'Train' )
 
 //john.assigneTo(v1) // passing in the entire vehicle object not just the name
 
-//let ddf = {
-//    hat: ['top','bottom']
-//}
 // if this is too easy, and only after you are done with the above
 // what happens if you assigne a crew member to 2 vehicles: should the get unassigned from the first one?
 //console.log(john.ability);
 //console.log(v1.type);
 //v1.assignedCrew = john;
 
-//ddf.hat.push(john);
-//console.log(ddf);
-
-
-//console.log('testing to make sure this works',v1)
 
 // test below
 
@@ -184,6 +172,7 @@ if(typeof describe === 'function'){
             v2.assignedCrew = [];
             v2.addCrew(john)
             v2.addCrew(bob)
+            v2.addCrew(joe)
             //console.log(v1.assignedCrew)
             console.log(v2);
             console.log('type: ',v2.type)
@@ -214,6 +203,7 @@ if(typeof describe === 'function'){
             v4.assignedCrew = [];
             v4.addCrew(john)
             v4.addCrew(bob)
+            v4.addCrew(mark)
             //console.log(v1.assignedCrew)
             console.log(v4);
             console.log('type: ',v4.type)
