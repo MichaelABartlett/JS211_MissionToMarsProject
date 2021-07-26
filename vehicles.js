@@ -1,3 +1,4 @@
+'use strict'
 //  assignment
 
 // vehicle can only go if there is atleast one correct driver
@@ -14,19 +15,24 @@ class Vehicle {
 
     identifier;
     type;
-    crew;
     // bus;    // must be driven by a driver
     // plane;  // must be driven by a pilot
     // train;  // must be driven by a engineer
     // boat;   // must be driven by a capain
 
 
-    constructor(iIdentifier, itype){
-        this.identifier = iIdentifier;
-        this.type = itype;
+    constructor(identifier, type){
+        this.identifier = identifier;
+        this.type = type;
         this.assignedCrew = [];
     }
 
+    addCrew(name){
+        //let addedCrew = new CrewMembers(name)
+        //let nowCrew = this.currentCrew
+        this.assignedCrew.push(name);
+    
+    }
     // Properties:
     // name/identifier unique identifier for the vehicle
     // type of vehicle
@@ -38,6 +44,10 @@ class Vehicle {
                         // of vehicle and the current assigned grew
 
 }
+// end of Vehicle
+
+
+
 
 // Titles:
 // pilot
@@ -50,9 +60,9 @@ class CrewMembers {
     crewName;   // name of the crew member
     ability;    // what can the crew member drive
    
-    constructor(icrewName, iability){
-        this.crewName = icrewName;
-        this.ability = iability
+    constructor(crewName, ability){
+        this.crewName = crewName;
+        this.ability = ability;
     }
     //properties
     // name - name of the crew member
@@ -87,14 +97,47 @@ let v8 = new Vehicle('AUS999', 'train' )
 
 //john.assigneTo(v1) // passing in the entire vehicle object not just the name
 
-let ddf = {
-    hat: ['top','bottom']
-}
+//let ddf = {
+//    hat: ['top','bottom']
+//}
 // if this is too easy, and only after you are done with the above
 // what happens if you assigne a crew member to 2 vehicles: should the get unassigned from the first one?
-console.log(john.ability);
-console.log(v1.type);
-v1.assignedCrew = john;
-this.v1.assignedCrew.push('aff');
-ddf.hat.push(john);
-console.log(ddf);
+//console.log(john.ability);
+//console.log(v1.type);
+//v1.assignedCrew = john;
+
+//ddf.hat.push(john);
+//console.log(ddf);
+
+
+//console.log('testing to make sure this works',v1)
+
+// test below
+
+if(typeof describe === 'function'){
+    const assert = require('assert');
+
+    describe('test to create a vehicle', function(){
+        it('should create a vehicle correctly', function(){
+            let v1 = new Vehicle('12341','Plane');
+            assert.strictEqual(v1.identifier, '12341');
+        })
+
+        it('should create a crewMember correctly', function(){
+            let john = new CrewMembers('John Doe', 'Pilot');
+            assert.strictEqual(john.crewName, 'John Doe');
+        })
+
+        it('should add a crew member to a vehicle correctly', function(){
+            let v1 = new Vehicle('12341','Plane');
+            let john = new CrewMembers('John Doe', 'Pilot');
+            v1.addCrew(john)
+            v1.addCrew(bob)
+            //console.log(v1.assignedCrew)
+            console.log(v1);
+            //console.log('looking',v1.assignedCrew[0].ability)
+            assert.strictEqual(v1.assignedCrew[0], john);
+        })
+    })
+
+}

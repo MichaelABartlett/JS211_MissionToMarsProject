@@ -1,5 +1,5 @@
 {
-  "name": "JS211_Mission-To-Mars",
+  "name": "vehicles",
   "version": "1.0.0",
   "description": "Practicing classes and functions",
   "repository": {
@@ -13,7 +13,7 @@
     "javascripting": "javascripting",
     "functional-javascript": "functional-javascript"
   },
-  "author": "Clayton Berger",
+  "author": "Michael Bartett",
   "bugs": {
     "url": "https://github.com/AustinCodingAcademy/JS211_MissionToMarsProject/issues"
   },
