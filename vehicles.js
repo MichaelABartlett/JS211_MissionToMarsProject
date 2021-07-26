@@ -160,9 +160,13 @@ if(typeof describe === 'function'){
             
         })
 
+    })
+
+    describe('checking if vehicles can go', function(){
         it('can a vehicle go with only the correct driver for plane', function(){
             //let v1 = new Vehicle('12341','Plane');
             //let john = new CrewMembers('John Doe', 'Pilot');
+            v1.assignedCrew = [];
             v1.addCrew(john)
             v1.addCrew(bob)
             //console.log(v1.assignedCrew)
@@ -171,49 +175,52 @@ if(typeof describe === 'function'){
             console.log('looking',v1.assignedCrew[0].ability)
             assert.strictEqual(v1.canGo(v1),'leaving')
         })
+    })
 
+    describe('checking if vehicles can go', function(){   
         it('can a vehicle go with only the correct driver for bus', function(){
             //let v1 = new Vehicle('12341','Plane');
             //let john = new CrewMembers('John Doe', 'Pilot');
-            v1.addCrew(john)
-            v1.addCrew(bob)
+            v2.assignedCrew = [];
+            v2.addCrew(john)
+            v2.addCrew(bob)
             //console.log(v1.assignedCrew)
-            console.log(v1);
-            console.log('type: ',v1.type)
-            console.log('looking',v1.assignedCrew[0].ability)
-            assert.strictEqual(v1.canGo(v1),'leaving')
+            console.log(v2);
+            console.log('type: ',v2.type)
+            console.log('looking',v2.assignedCrew[0].ability)
+            assert.strictEqual(v2.canGo(v2),'leaving')
         })
+    })
 
+    describe('checking if vehicles can go', function(){
         it('can a vehicle go with only the correct driver for boat', function(){
             //let v1 = new Vehicle('12341','Plane');
             //let john = new CrewMembers('John Doe', 'Pilot');
-            v1.addCrew(john)
-            v1.addCrew(bob)
+            v3.assignedCrew = [];
+            v3.addCrew(john)
+            v3.addCrew(bob)
             //console.log(v1.assignedCrew)
-            console.log(v1);
-            console.log('type: ',v1.type)
-            console.log('looking',v1.assignedCrew[0].ability)
-            assert.strictEqual(v1.canGo(v1),'leaving')
+            console.log(v3);
+            console.log('type: ',v3.type)
+            console.log('looking',v3.assignedCrew[0].ability)
+            assert.strictEqual(v3.canGo(v3),'leaving')
         })
+    })
 
+    describe('checking if vehicles can go', function(){
         it('can a vehicle go with only the correct driver for train', function(){
             //let v1 = new Vehicle('12341','Plane');
             //let john = new CrewMembers('John Doe', 'Pilot');
-            v1.addCrew(john)
-            v1.addCrew(bob)
+            v4.assignedCrew = [];
+            v4.addCrew(john)
+            v4.addCrew(bob)
             //console.log(v1.assignedCrew)
-            console.log(v1);
-            console.log('type: ',v1.type)
-            console.log('looking',v1.assignedCrew[0].ability)
-            assert.strictEqual(v1.canGo(v1),'leaving')
+            console.log(v4);
+            console.log('type: ',v4.type)
+            console.log('looking',v4.assignedCrew[0].ability)
+            assert.strictEqual(v4.canGo(v4),'leaving')
         })
 
-
-
-
     })
-
-
-    
 
 }
