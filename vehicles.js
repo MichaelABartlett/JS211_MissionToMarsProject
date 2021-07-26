@@ -40,8 +40,27 @@ class Vehicle {
                 // array of crew members
 
 
-    // methods needed - canGo() - return true, if the vehicle is allowed to be operated, based on the type
-                        // of vehicle and the current assigned grew
+  // methods needed - canGo() - return true, if the vehicle is allowed to be operated, based on the type
+                        // of vehicle and the current assigned grew                
+    canGo(theVehicle){
+        for(let i = 0; i < theVehicle.assignedCrew.length; i ++){
+            if((theVehicle.type === 'Plane') && (theVehicle.assignedCrew[i].ability === 'Pilot')){
+                return 'leaving';
+            } else if ((theVehicle.type === 'Bus') && (theVehicle.assignedCrew[i].ability === 'Driver')){
+                return 'leaving';
+            } else if ((theVehicle.type === 'Train') && (theVehicle.assignedCrew[i].ability === 'Engineer')){
+                return 'leaving';
+            } else if ((theVehicle.type === 'Boat') && (theVehicle.assignedCrew[i].ability === 'Captain')){
+                return 'leaving';
+            } else {
+                
+            }
+        }
+    };
+
+        // check to make sure that the vehicle matches the driver needed
+     
+        
 
 }
 // end of Vehicle
@@ -78,21 +97,21 @@ class CrewMembers {
 let john = new CrewMembers('John Doe', 'Pilot');
 let mark = new CrewMembers('Mark Johnson','Engineer');
 let bob = new CrewMembers('Bob Dole','Captain');
-let joe = new CrewMembers('Joe Bane', 'driver');
+let joe = new CrewMembers('Joe Bane', 'Driver');
 let jane = new CrewMembers('Jane Smith', 'Pilot');
 let mike = new CrewMembers('Mike House','Engineer');
 let billy = new CrewMembers('Billy Row','Captain');
-let jack = new CrewMembers('Jack Hill', 'driver');
+let jack = new CrewMembers('Jack Hill', 'Driver');
 
 
 let v1 = new Vehicle('12341','Plane')
 let v2 = new Vehicle('DAL232', 'Bus')
 let v3 = new Vehicle('Betty', 'Boat')
-let v4 = new Vehicle('AUS122', 'train' )
+let v4 = new Vehicle('AUS122', 'Train' )
 let v5 = new Vehicle('A3435','Plane')
 let v6 = new Vehicle('Hous223', 'Bus')
 let v7 = new Vehicle('Hooked', 'Boat')
-let v8 = new Vehicle('AUS999', 'train' )
+let v8 = new Vehicle('AUS999', 'Train' )
 
 
 //john.assigneTo(v1) // passing in the entire vehicle object not just the name
@@ -119,25 +138,82 @@ if(typeof describe === 'function'){
 
     describe('test to create a vehicle', function(){
         it('should create a vehicle correctly', function(){
-            let v1 = new Vehicle('12341','Plane');
+            //let v1 = new Vehicle('12341','Plane');
             assert.strictEqual(v1.identifier, '12341');
         })
 
         it('should create a crewMember correctly', function(){
-            let john = new CrewMembers('John Doe', 'Pilot');
+            //let john = new CrewMembers('John Doe', 'Pilot');
             assert.strictEqual(john.crewName, 'John Doe');
         })
 
         it('should add a crew member to a vehicle correctly', function(){
-            let v1 = new Vehicle('12341','Plane');
-            let john = new CrewMembers('John Doe', 'Pilot');
+            //let v1 = new Vehicle('12341','Plane');
+            //let john = new CrewMembers('John Doe', 'Pilot');
+            v1.addCrew(john)
+            v1.addCrew(bob)
+            //console.log(v1.assignedCrew)
+            //console.log(v1);
+            //console.log('type: ',v1.type)
+            //console.log('looking',v1.assignedCrew[0].ability)
+            assert.strictEqual(v1.assignedCrew[1], bob);
+            
+        })
+
+        it('can a vehicle go with only the correct driver for plane', function(){
+            //let v1 = new Vehicle('12341','Plane');
+            //let john = new CrewMembers('John Doe', 'Pilot');
             v1.addCrew(john)
             v1.addCrew(bob)
             //console.log(v1.assignedCrew)
             console.log(v1);
-            //console.log('looking',v1.assignedCrew[0].ability)
-            assert.strictEqual(v1.assignedCrew[0], john);
+            console.log('type: ',v1.type)
+            console.log('looking',v1.assignedCrew[0].ability)
+            assert.strictEqual(v1.canGo(v1),'leaving')
         })
+
+        it('can a vehicle go with only the correct driver for bus', function(){
+            //let v1 = new Vehicle('12341','Plane');
+            //let john = new CrewMembers('John Doe', 'Pilot');
+            v1.addCrew(john)
+            v1.addCrew(bob)
+            //console.log(v1.assignedCrew)
+            console.log(v1);
+            console.log('type: ',v1.type)
+            console.log('looking',v1.assignedCrew[0].ability)
+            assert.strictEqual(v1.canGo(v1),'leaving')
+        })
+
+        it('can a vehicle go with only the correct driver for boat', function(){
+            //let v1 = new Vehicle('12341','Plane');
+            //let john = new CrewMembers('John Doe', 'Pilot');
+            v1.addCrew(john)
+            v1.addCrew(bob)
+            //console.log(v1.assignedCrew)
+            console.log(v1);
+            console.log('type: ',v1.type)
+            console.log('looking',v1.assignedCrew[0].ability)
+            assert.strictEqual(v1.canGo(v1),'leaving')
+        })
+
+        it('can a vehicle go with only the correct driver for train', function(){
+            //let v1 = new Vehicle('12341','Plane');
+            //let john = new CrewMembers('John Doe', 'Pilot');
+            v1.addCrew(john)
+            v1.addCrew(bob)
+            //console.log(v1.assignedCrew)
+            console.log(v1);
+            console.log('type: ',v1.type)
+            console.log('looking',v1.assignedCrew[0].ability)
+            assert.strictEqual(v1.canGo(v1),'leaving')
+        })
+
+
+
+
     })
+
+
+    
 
 }
